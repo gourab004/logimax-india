@@ -8,6 +8,10 @@ import classes from './AddUser.module.css';
 const AddUser = (props) => {
   const [enteredUsername, setEnteredUsername] = useState('');
   const [enteredAge, setEnteredAge] = useState('');
+  const [enteredLocation, setEnteredLocation] = useState('');
+  const [enteredAmount, setEnteredAmount] = useState('');
+  const [enteredWeight, setEnteredWeight] = useState('');
+  const [enteredCoupon, setEnteredCoupon] = useState('');
   const [error, setError] = useState();
 
   const addUserHandler = (event) => {
@@ -19,7 +23,16 @@ const AddUser = (props) => {
       });
       return;
     }
-    if (+enteredAge < 1) {
+
+    if (enteredAmount.trim().length === 0 || enteredWeight.trim().length === 0) {
+      setError({
+        title: 'Invalid input',
+        message: 'Please enter a valid weight and amount (non-empty values).',
+      });
+      return;
+    }
+
+    if (+enteredAge < 1 || +enteredAge>110) {
       setError({
         title: 'Invalid age',
         message: 'Please enter a valid age (> 0).',
@@ -37,6 +50,22 @@ const AddUser = (props) => {
 
   const ageChangeHandler = (event) => {
     setEnteredAge(event.target.value);
+  };
+
+  const locationChangeHandler = (event) => {
+    setEnteredLocation(event.target.value);
+  };
+
+  const amountChangeHandler = (event) => {
+    setEnteredAmount(event.target.value);
+  };
+
+  const couponChangeHandler = (event) => {
+    setEnteredCoupon(event.target.value);
+  };
+
+  const weightChangeHandler = (event) => {
+    setEnteredWeight(event.target.value);
   };
 
   const errorHandler = () => {
@@ -75,11 +104,15 @@ const AddUser = (props) => {
           <input
             id="location"
             type="text"
+            value={enteredLocation}
+            onChange={locationChangeHandler}
           />
           <label htmlFor="amount">Amount</label>
           <input
             id="amount"
             type="number"
+            value={enteredAmount}
+            onChange={amountChangeHandler}
           />
           <label htmlFor="paymentType">Payment Type</label>
           <select id="paymentType" name="paymentType">
@@ -92,6 +125,8 @@ const AddUser = (props) => {
           <input
             id="weight"
             type="number"
+            value={enteredWeight}
+            onChange={weightChangeHandler}
           />
           <label htmlFor="ornamentType">Ornament Type</label>
           <select id="ornamentType" name="ornamentType">
@@ -100,6 +135,13 @@ const AddUser = (props) => {
             <option value="Ear ring">Ear ring</option>
             <option value="others">Others</option>
           </select>
+          <label htmlFor="coupon">coupon</label>
+          <input
+            id="coupon"
+            type="text"
+            value={enteredCoupon}
+            onChange={couponChangeHandler}
+          />
           <br/>
           <br/>
           <Button type="submit">Submit Sell</Button>
