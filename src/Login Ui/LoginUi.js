@@ -30,7 +30,7 @@ function LoginUi() {
           </div>
            
             <p className="link">
-              <a href="#">Forgot password ?</a> Or<a href="#">Sign Up</a>
+              <a href="https://www.google.com">Forgot password ?</a> Or<a href="https://www.google.com">Sign Up</a>
             </p>
            
  
