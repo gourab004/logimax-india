@@ -1,10 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css'; 
-import LoginUi from './Login Ui/LoginUi';
+import ReactDOM from 'react-dom/client';
 
-ReactDOM.render( 
-    <LoginUi /> ,
-  document.getElementById('root')
-);
- 
+import './index.css';
+import App from './App';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
