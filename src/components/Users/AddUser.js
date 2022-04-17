@@ -131,11 +131,11 @@ const AddUser = (props) => {
           <label htmlFor="ornamentType">Ornament Type</label>
           <select id="ornamentType" name="ornamentType">
             <option value="neckless">Neckless</option>
-            <option value="ring">ring</option>
+            <option value="ring">Ringe</option>
             <option value="Ear ring">Ear ring</option>
             <option value="others">Others</option>
           </select>
-          <label htmlFor="coupon">coupon</label>
+          <label htmlFor="coupon">Coupon</label>
           <input
             id="coupon"
             type="text"
