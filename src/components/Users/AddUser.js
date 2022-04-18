@@ -39,6 +39,16 @@ const AddUser = (props) => {
       });
       return;
     }
+
+    var regEx = new RegExp("^[a-zA-Z ]*$");
+   if(!regEx.test(enteredUsername)){
+     setError({
+        title: 'Invalid name',
+        message: 'Please enter a valid name.',
+      });
+      return;
+    }
+
     props.onAddUser(enteredUsername, enteredAge);
     setEnteredUsername('');
     setEnteredAge('');
